@@ -1,0 +1,97 @@
+<div class="card text-center">
+    <div class="card-header">
+        <h3>Cursos</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Lista de cursos filtrados por "{{strBusca}}"</h5>
+        <div *ngIf="cursos?.length==0" class="alert alert-info">No se han encotrado coincidencias</div>
+        <table class="table table-bordered table-striped" *ngIf="cursos?.length>0">
+            <thead>
+                <tr>
+                    <th>curso</th>
+                    <th>f. inicio</th>
+                    <th>f. fin</th>
+                    <th>horas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let curso of cursos">
+                    <td>{{ curso.nombre }}</td>
+                    <td>{{ curso.inicio | date:"dd, MMM yyyy"}}</td>
+                    <td>{{ curso.fin | date:"dd, MMM yyyy"}}</td>
+                    <td>{{ curso.horas }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+        <h3>Conocimientos técnicos</h3>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Lista de conocimientos técnicos filtrados por "{{strBusca}}"</h5>
+        <div *ngIf="conocimientostecnicos?.length==0" class="alert alert-info">No se han encotrado coincidencias</div>
+        <table class="table table-bordered table-striped" *ngIf="conocimientostecnicos?.length>0">
+            <thead>
+                <tr>
+                    <th>tema</th>
+                    <th>tipo</th>
+                    <th>nivel</th>
+                    <th>comentario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cono of conocimientostecnicos">
+                    <td>{{ cono.nombre }}</td>
+                    <td>{{ cono.tipo }}</td>
+                    <td>{{ cono.nivel }}</td>
+                    <td>{{ cono.comentario }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+      <h3>Experiencia</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Lista experiencias profesionales filtradas por "{{strBusca}}"</h5>
+      
+      <div *ngIf="experiencias?.length==0" class="alert alert-info">No hay disponibilidad para mostra la lista</div> 
+      <table class="table table-bordered table-striped" *ngIf="experiencias?.length>0">
+        <thead>
+          <tr>
+            
+            <th>empresa</th>
+            <th>cliente</th>
+            <th>f. inicio</th>
+            <th>f. fin</th>
+            <th>Sector cliente</th>
+            <th>actividades</th>
+            <th>experiencias</th>
+   
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exp of experiencias">
+            <td>{{ exp.empresa }}</td>
+            <td>{{ exp.cliente}}</td>
+            <td>{{ exp.inicio | date:"dd, MMM yyyy"}}</td>
+            <td>{{exp.fin | date:"dd, MMM yyyy"}}</td>
+            <td>{{exp.sectorCliente}}</td>
+            <td>
+              <button type="button" name="verActividades" (click)="verActividades(exp)" class="btn btn-primary btn-sm">ver</button>
+            </td>
+            <td>
+              <button type="button" name="verExperiencia" (click)="verExperiencia(exp)" class="btn btn-primary btn-sm">ver</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>

@@ -1,0 +1,35 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h3>Cursos</h3>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Lista de cursos realizados</h5>
+    
+    <div *ngIf="cursos?.length==0" class="alert alert-info">No hay disponibilidad para mostra la lista</div> 
+    <table class="table table-bordered table-striped" *ngIf="cursos?.length>0">
+      <thead>
+        <tr>
+          
+          <th>curso</th>
+          <th>f. inicio</th>
+          <th>f. fin</th>
+          <th>horas</th>
+ 
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let curso of cursos">
+          <td>{{ curso.nombre }}</td>
+          <td>{{ curso.inicio | date:"dd, MMM yyyy"}}</td>
+          <td>{{ curso.fin | date:"dd, MMM yyyy"}}</td>
+          <td>{{ curso.horas }}</td>
+        
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="card-footer text-muted">
+    <paginator-nav *ngIf = "paginador" [paginador] = "paginador" (messageToEmit)="getPagina($event)"></paginator-nav>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="card text-center">
+    <div class="card-header">
+      <h3>Experiencia</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Lista experiencias profesionales</h5>
+      
+      <div *ngIf="experiencias?.length==0" class="alert alert-info">No hay disponibilidad para mostra la lista</div> 
+      <table class="table table-bordered table-striped" *ngIf="experiencias?.length>0">
+        <thead>
+          <tr>
+            
+            <th>empresa</th>
+            <th>cliente</th>
+            <th>f. inicio</th>
+            <th>f. fin</th>
+            <th>Sector cliente</th>
+            <th>actividades</th>
+            <th>experiencias</th>
+   
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let exp of experiencias">
+            <td>{{ exp.empresa }}</td>
+            <td>{{ exp.cliente}}</td>
+            <td>{{ exp.inicio | date:"dd, MMM yyyy"}}</td>
+            <td>{{exp.fin | date:"dd, MMM yyyy"}}</td>
+            <td>{{exp.sectorCliente}}</td>
+            <td>
+              <button type="button" name="verActividades" (click)="verActividades(exp)" class="btn btn-primary btn-sm">ver</button>
+            </td>
+            <td>
+              <button type="button" name="verExperiencia" (click)="verExperiencia(exp)" class="btn btn-primary btn-sm">ver</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+    <div class="card-footer text-muted">
+      <paginator-nav *ngIf = "paginador" [paginador] = "paginador" (messageToEmit)="getPagina($event)"></paginator-nav>
+    </div>
+  </div>

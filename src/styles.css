@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+html{
+    position:relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.wrap {
+    padding-bottom: 60px;
+}
+
+.quote {
+    color: #8cc540;
+
+  }
+  
+  .redText {
+    color: Red;
+  }
+  
+  h1.titleText {
+    color: #69a8cf;
+    text-align: left;
+    margin-top: 40px;
+    font-weight: normal;
+  }
